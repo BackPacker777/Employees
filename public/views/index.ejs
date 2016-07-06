@@ -1,0 +1,64 @@
+<% include public/views/header.ejs %>
+
+<div class="row" id="title">
+    <div class="small-6 columns">
+        <img src="public/views/images/psp_logo.png" width="420" height="88">
+    </div>
+	<div class="small-6 columns">
+		<h3 class="v-center">Employee Transition Application</h3>
+	</div>
+</div>
+<br>
+<div class="row">
+    <div class="small-6 columns">
+        <span class="large expanded button" id="startNew">Start New</span>
+    </div>
+    <div class="small-6 columns">
+        <span class="large expanded button" id="continue">Continue In Progress</span>
+    </div>
+</div>
+<div class="row" id="mainInfo">
+    <div class="small-4 columns">
+        <div class="row">
+            <div class="small-6 columns">
+                <h5 class="text-left">New Employee</h5>
+            </div>
+            <div class="small-1 columns end">
+                <input type="radio" name="transitionType" id="newEmployee" value="new">
+            </div>
+        </div>
+    </div>
+    <div class="small-4 columns">
+        <div class="row">
+            <div class="small-6 columns">
+                <h5 class="text-left middle">Moving Employee</h5>
+            </div>
+            <div class="small-1 columns end">
+                <input type="radio" name="transitionType" id="movingEmployee" value="moving">
+            </div>
+        </div>
+    </div>
+    <div class="small-4 columns">
+        <div class="row">
+            <div class="small-6 columns">
+                <h5 class="text-left middle">Exiting Employee</h5>
+            </div>
+            <div class="small-1 columns end">
+                <input type="radio" name="transitionType" id="exitingEmployee" value="exiting">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" id="inProgress">
+    <div class="small-4 columns">
+
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<!--<script src="public/javascripts/libraries/jquery-2.2.3.min.js"></script>-->
+<!--<script src="public/javascripts/libraries/foundation.min.js"></script>-->
+<script src="public/javascripts/bundle.js"></script>
+<!--<script src="https://use.fontawesome.com/4270d89823.js"></script>-->
+
+<% include public/views/footer.ejs %>
