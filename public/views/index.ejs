@@ -1,58 +1,397 @@
 <% include public/views/header.ejs %>
 
 <div class="row" id="title">
-    <div class="small-6 columns">
+    <div class="small-7 columns">
         <img src="public/views/images/psp_logo.png" width="420" height="88">
     </div>
-	<div class="small-6 columns">
+	<div class="small-5 columns">
 		<h3 class="v-center">Employee Transition Application</h3>
 	</div>
 </div>
 <br>
-<div class="row">
+<div class="row" id="buttons">
     <div class="small-6 columns">
-        <span class="large expanded button" id="startNew">Start New</span>
+        <span class="large expanded button success" id="startNew">Start New</span>
     </div>
     <div class="small-6 columns">
         <span class="large expanded button" id="continue">Continue In Progress</span>
     </div>
 </div>
-<div class="row" id="mainInfo">
-    <div class="small-4 columns">
-        <div class="row">
-            <div class="small-6 columns">
-                <h5 class="text-left">New Employee</h5>
+<div id="mainInfo">
+    <div class="row">
+        <div class="small-4 columns">
+            <div class="row">
+                <div class="small-6 columns">
+                    <h5 class="text-left v-center-1">New Employee</h5>
+                </div>
+                <div class="small-1 columns end">
+                    <input type="radio" class="middles" name="transitionType" id="newEmployee" value="new">
+                </div>
             </div>
-            <div class="small-1 columns end">
-                <input type="radio" name="transitionType" id="newEmployee" value="new">
+        </div>
+        <div class="small-4 columns">
+            <div class="row">
+                <div class="small-6 columns">
+                    <h5 class="text-left v-center-1">Moving Employee</h5>
+                </div>
+                <div class="small-1 columns end">
+                    <input type="radio" class="middles" name="transitionType" id="movingEmployee" value="moving">
+                </div>
+            </div>
+        </div>
+        <div class="small-4 columns">
+            <div class="row">
+                <div class="small-6 columns">
+                    <h5 class="text-left v-center-1">Exiting Employee</h5>
+                </div>
+                <div class="small-1 columns end">
+                    <input type="radio" class="middles" name="transitionType" id="exitingEmployee" value="exiting">
+                </div>
             </div>
         </div>
     </div>
-    <div class="small-4 columns">
-        <div class="row">
-            <div class="small-6 columns">
-                <h5 class="text-left middle">Moving Employee</h5>
-            </div>
-            <div class="small-1 columns end">
-                <input type="radio" name="transitionType" id="movingEmployee" value="moving">
-            </div>
-        </div>
-    </div>
-    <div class="small-4 columns">
-        <div class="row">
-            <div class="small-6 columns">
-                <h5 class="text-left middle">Exiting Employee</h5>
-            </div>
-            <div class="small-1 columns end">
-                <input type="radio" name="transitionType" id="exitingEmployee" value="exiting">
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="row">
+                <div class="small-3 columns">
+                    <p class="text-left v-center-1"><strong>Name (Last, First, Middle):</strong></p>
+                </div>
+                <div class="small-4 columns">
+                    <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+                </div>
+                <div class="small-4 columns">
+                    <input type="text" name="firstName" id="firstName" placeholder="First Name">
+                </div>
+                <div class="small-1 columns end">
+                    <input type="text" name="middle" id="middle" placeholder="Middle">
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="row" id="inProgress">
-    <div class="small-4 columns">
-
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="row">
+                <div class="small-1 columns">
+                    <p class="text-left v-center-1"><strong>Building:</strong></p>
+                </div>
+                <div class="small-2 columns">
+                    <select name="building" id="building">
+                        <option></option>
+                        <option value="Central">Central</option>
+                        <option value="Lincoln">Lincoln</option>
+                        <option value="Ottawa">Ottawa</option>
+                        <option value="Sheridan">Sheridan</option>
+                        <option value="PMS">Middle School</option>
+                        <option value="PHS">High School</option>
+                        <option value="Montessori">Montessori</option>
+                        <option value="Spitler">Spitler</option>
+                    </select>
+                </div>
+                <div class="small-2 columns">
+                    <p class="text-left v-center-1"><strong>Position:</strong></p>
+                </div>
+                <div class="small-2 columns">
+                    <input type="text">
+                </div>
+                <div class="small-2 columns">
+                    <p class="text-left v-center-1"><strong>Replacement?:</strong></p>
+                </div>
+                <div class="small-1 columns">
+                    <input type="checkbox" class="middles" name="replacement" id="replacement">
+                </div>
+                <div class="small-2 columns">
+                    <input type="text" placeholder="Replacing" name="replacing" id="replacing">
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="row">
+        <hr>
+    </div>
+    <div class="row">
+        <div class="small-5 columns v-center-1">
+            <h5><strong>PERSONNEL:</strong></h5>
+        </div>
+        <div class="small-6 columns end">
+            <div class="row">
+                <div class="small-4 columns v-center-1">
+                    <h5 class="text-left">INITIALS (LL):</h5>
+                </div>
+                <div class="small-2 columns end">
+                    <input type="text" name="initialsLL" id="initialsLL">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-3 columns">
+            <p class="text-left">CEPI:</p>
+        </div>
+        <div class="small-1 columns">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">Background Check:</p>
+        </div>
+        <div class="small-1 columns end">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">PIC#:</p>
+        </div>
+        <div class="small-1 columns end">
+            <input type="checkbox">
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-3 columns">
+            <p class="text-left">CEPI:</p>
+        </div>
+        <div class="small-1 columns">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">Fingerprints:</p>
+        </div>
+        <div class="small-1 columns">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">Background Check:</p>
+        </div>
+        <div class="small-1 columns end">
+            <input type="checkbox">
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-3 columns">
+            <p class="text-left">PIC#:</p>
+        </div>
+        <div class="small-1 columns end">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">Fingerprints:</p>
+        </div>
+        <div class="small-1 columns">
+            <input type="checkbox">
+        </div>
+    </div>
+    <div class="row">
+        <hr>
+    </div>
+    <div class="row">
+        <div class="small-5 columns v-center-1">
+            <h5><strong>TECHNOLOGY:</strong></h5>
+        </div>
+        <div class="small-6 columns end">
+            <div class="row">
+                <div class="small-4 columns v-center-1">
+                    <h5 class="text-left">INITIALS (HB):</h5>
+                </div>
+                <div class="small-2 columns end">
+                    <input type="text" name="initialsHB" id="initialsHB">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-3 columns">
+            <p class="text-left">Active Directory Account:</p>
+        </div>
+        <div class="small-1 columns">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">Exchange Account:</p>
+        </div>
+        <div class="small-1 columns">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">Email Groups:</p>
+        </div>
+        <div class="small-1 columns end">
+            <input type="checkbox">
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-3 columns">
+            <p class="text-left">Phone:</p>
+        </div>
+        <div class="small-1 columns">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">Voice Mail:</p>
+        </div>
+        <div class="small-1 columns">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">District Contacts Page:</p>
+        </div>
+        <div class="small-1 columns end">
+            <input type="checkbox">
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-3 columns">
+            <p class="text-left">PowerSchool Acccount:</p>
+        </div>
+        <div class="small-1 columns end">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">Data Area Created/Deleted:</p>
+        </div>
+        <div class="small-1 columns end">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">Moodle:</p>
+        </div>
+        <div class="small-1 columns end">
+            <input type="checkbox">
+        </div>
+    </div>
+    <div class="row">
+        <hr>
+    </div>
+    <div class="row">
+        <div class="small-5 columns v-center-1">
+            <h5><strong>PAYROLL:</strong></h5>
+        </div>
+        <div class="small-6 columns end">
+            <div class="row">
+                <div class="small-4 columns v-center-1">
+                    <h5 class="text-left">INITIALS (TM):</h5>
+                </div>
+                <div class="small-2 columns end">
+                    <input type="text" name="initialsTM" id="initialsTM">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-3 columns">
+            <p class="text-left">CEPI:</p>
+        </div>
+        <div class="small-1 columns">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">Background Check:</p>
+        </div>
+        <div class="small-1 columns end">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">PIC#:</p>
+        </div>
+        <div class="small-1 columns end">
+            <input type="checkbox">
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-3 columns">
+            <p class="text-left">CEPI:</p>
+        </div>
+        <div class="small-1 columns">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">Fingerprints:</p>
+        </div>
+        <div class="small-1 columns">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">Background Check:</p>
+        </div>
+        <div class="small-1 columns end">
+            <input type="checkbox">
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-3 columns">
+            <p class="text-left">PIC#:</p>
+        </div>
+        <div class="small-1 columns end">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">Fingerprints:</p>
+        </div>
+        <div class="small-1 columns">
+            <input type="checkbox">
+        </div>
+    </div>
+    <div class="row">
+        <hr>
+    </div>
+    <div class="row">
+        <div class="small-5 columns v-center-1">
+            <h5><strong>FACILITIES:</strong></h5>
+        </div>
+        <div class="small-6 columns end">
+            <div class="row">
+                <div class="small-4 columns v-center-1">
+                    <h5 class="text-left">INITIALS (NM):</h5>
+                </div>
+                <div class="small-2 columns end">
+                    <input type="text" name="initialsNM" id="initialsNM">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-3 columns">
+            <p class="text-left">Key Card:</p>
+        </div>
+        <div class="small-1 columns">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">Keys:</p>
+        </div>
+        <div class="small-1 columns">
+            <input type="checkbox">
+        </div>
+        <div class="small-3 columns">
+            <p class="text-left">AESOP:</p>
+        </div>
+        <div class="small-1 columns">
+            <input type="checkbox">
+        </div>
+    </div>
+    <div class="row">
+        <hr>
+    </div>
+    <div class="row" id="certified">
+        <div class="small-2 columns v-center-1">
+            <h5><strong>CERTIFICATION:</strong></h5>
+        </div>
+        <div class="small-12 columns end">
+            <div class="row">
+                <div class="small-6 columns v-center-1">
+                    <p>By initialling here, you certify that the employee is certified as transitioned.</p>
+                </div>
+                <div class="small-2 columns v-center-1">
+                    <h5 class="text-left">INITIALS (LL):</h5>
+                </div>
+                <div class="small-1 columns end">
+                    <input type="text" name="certInitialsLL" id="certInitialsLL">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="certifyButton">
+        <div class="small-12 columns">
+            <span class="large expanded button alert" id="startNew">C E R T I F Y</span>
+        </div>
+    </div>
+    <br>
 </div>
 
 <!-- SCRIPTS -->
