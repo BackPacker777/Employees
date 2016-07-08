@@ -58,6 +58,8 @@
 	class main {
 	     constructor() {
 	          this.initials = [];
+	          this.setInitials();
+	          this.done = false;
 	          FADE.doFade('in', 'title');
 	          document.getElementById('mainInfo').style.visibility = 'hidden';
 	          document.getElementById('replacing').style.visibility = 'hidden';
@@ -66,6 +68,13 @@
 	          main.handleNew();
 	          main.handleReplacement();
 	          this.handleInitials();
+	     }
+
+	     setInitials() {
+	          this.initials[0] = null;
+	          this.initials[1] = null;
+	          this.initials[2] = null;
+	          this.initials[3] = null;
 	     }
 
 	     static handleNew() {
@@ -86,18 +95,72 @@
 	     }
 
 	     handleInitials() {
+	          const LORI_LEWIS = 'LL';
+	          const HOWARD_BATES = 'HB';
+	          const TARA_MOORE = 'TM';
+	          const NICOLE_MORROW = 'NM';
 	          document.getElementById('initialsLL').addEventListener('change', () => {
 	               let initials = document.getElementById('initialsLL').value.toUpperCase();
-	               if (initials === '') {
+	               if (initials == '') {
 	                    this.initials[0] = null;
-	               } else if (initials !== 'LL') {
+	               } else if (initials == LORI_LEWIS) {
+	                    this.initials[0] = initials;
+	               } else {
 	                    alert('Incorrect value. Please try again.');
 	                    document.getElementById('initialsLL').value = null;
-	               } else {
-	                    this.initials[0] = initials;
 	               }
-	               console.log(this.initials[0]);
+	               this.checkDone();
 	          });
+	          document.getElementById('initialsHB').addEventListener('change', () => {
+	               let initials = document.getElementById('initialsHB').value.toUpperCase();
+	               if (initials === '') {
+	                    this.initials[1] = null;
+	               } else if (initials === HOWARD_BATES) {
+	                    this.initials[1] = initials;
+	               } else {
+	                    alert('Incorrect value. Please try again.');
+	                    document.getElementById('initialsHB').value = null;
+	               }
+	               this.checkDone();
+	          });
+	          document.getElementById('initialsTM').addEventListener('change', () => {
+	               let initials = document.getElementById('initialsTM').value.toUpperCase();
+	               if (initials === '') {
+	                    this.initials[2] = null;
+	               } else if (initials === TARA_MOORE) {
+	                    this.initials[2] = initials;
+	               } else {
+	                    alert('Incorrect value. Please try again.');
+	                    document.getElementById('initialsTM').value = null;
+	               }
+	               this.checkDone();
+	          });
+	          document.getElementById('initialsNM').addEventListener('change', () => {
+	               let initials = document.getElementById('initialsNM').value.toUpperCase();
+	               if (initials === '') {
+	                    this.initials[3] = null;
+	               } else if (initials === NICOLE_MORROW) {
+	                    this.initials[3] = initials;
+	               } else {
+	                    alert('Incorrect value. Please try again.');
+	                    document.getElementById('initialsNM').value = null;
+	               }
+	               this.checkDone();
+	          });
+	     }
+
+	     checkDone() {
+	          for (let i = 0; i < this.initials.length; i++) {
+	               if (this.initials[i] === '' || this.initials[i] === null) {
+	                    this.done = false;
+	                    break;
+	               } else {
+	                    this.done = true;
+	               }
+	          }
+	          if (this.done === true) {
+	               FADE.doFade('in', 'certified');
+	          }
 	     }
 	}
 
